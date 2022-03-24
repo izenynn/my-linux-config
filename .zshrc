@@ -74,7 +74,9 @@ ZSH_THEME=""
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
+
 # PURE PROMPT
+fpath+=$HOME/.zsh/pure
 autoload -U promptinit; promptinit
 prompt pure
 
@@ -108,7 +110,7 @@ prompt pure
 
 # welcome message
 echo ""
-figlet -f 3d \\\(^^\)/ | lolcat
+figlet -f 3d -d "$HOME/git/figlet-fonts" \\\(^^\)/ | lolcat
 
 # utils
 alias 'c=cd'
@@ -131,6 +133,11 @@ alias 'mc=make clean'
 alias 'mf=make fclean'
 alias 'ms=make sanitize'
 alias 'mn=make norme'
+
+# clipboard
+#alias 'c=xclip'
+alias 'x=xclip'
+alias 'v=xclip -o'
 
 # dev
 alias 'gccw=gcc -Wall -Werror -Wextra'
@@ -242,4 +249,11 @@ function k() {
 	return 0
 }
 
+# docker remove all
+alias 'dockerrmall=docker rm $(docker ps -a -q -f status=exited)'
 
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/rabi/google-cloud-sdk/path.zsh.inc' ]; then . '/home/rabi/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/rabi/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/rabi/google-cloud-sdk/completion.zsh.inc'; fi
