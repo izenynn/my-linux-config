@@ -1,13 +1,14 @@
 #!/bin/bash
 
-export "HOME=/home/rabi"
+export "HOME=/home/osboxes"
 
 ########## GLOBAL ##########
 apt update && apt upgrade -y
+apt update
 
 ########## ZSH ##########
 apt install zsh -y
-chsh -s $(which zsh)
+#chsh -s $(which zsh)
 
 ######### OH MY ZSH ##########
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -15,8 +16,10 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 ########## MANUAL STEPS ##########
 echo
 echo "########## MANUAL STEPS ##########"
-echo "# 1. Open another terminal
-# 2. Configure oh-my-zsh"
+echo "# 1. Run \"chsh -s \$(which zsh)\"
+# 2. Run \"zsh\"
+# 3. Configure oh-my-zsh
+# NOTE: You will have to logout later to apply the shell change"
 
 echo
 read -n 1 -p "Press any key to continue..." tmp
@@ -33,8 +36,11 @@ cp -r ./conf/figlet-fonts "$HOME"/git/
 
 ########## VIM ##########
 
+# install
+apt install vim neovim -y
+
 # dependencies
-apt install ccls -y
+apt install curl wget ccls -y
 
 # additionals tools (bear)
 apt install bear -y
