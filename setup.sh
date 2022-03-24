@@ -29,7 +29,7 @@ cp ./conf/.zshrc "$HOME"/
 
 # welcome message!
 apt install lolcat figlet -y
-cp -r figlet-fonts "$HOME"/git/
+cp -r ./conf/figlet-fonts "$HOME"/git/
 
 ########## VIM ##########
 
