@@ -8,8 +8,8 @@ export ZSH="/home/rabi/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-#ZSH_THEME="robbyrussell"
-ZSH_THEME=""
+ZSH_THEME="robbyrussell"
+#ZSH_THEME=""
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -75,10 +75,11 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-# PURE PROMPT
-fpath+=$HOME/.zsh/pure
-autoload -U promptinit; promptinit
-prompt pure
+########## PURE PROMPT ##########
+
+#fpath+=$HOME/.zsh/pure
+#autoload -U promptinit; promptinit
+#prompt pure
 
 # User configuration
 
