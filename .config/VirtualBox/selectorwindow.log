@@ -1,0 +1,18 @@
+00:00:00.472418 VirtualBox GUI VM Selector Window 6.1.32_Ubuntu r149290 linux.amd64 (Feb  8 2022 12:20:46) release log
+00:00:00.472421 Log opened 2022-03-22T08:03:54.715590000Z
+00:00:00.472423 Build Type: release
+00:00:00.472428 OS Product: Linux
+00:00:00.472430 OS Release: 5.13.0-35-generic
+00:00:00.472432 OS Version: #40~20.04.1-Ubuntu SMP Mon Mar 7 09:18:32 UTC 2022
+00:00:00.472491 DMI Product Name: 82JQ
+00:00:00.472500 DMI Product Version: Legion 5 Pro 16ACH6H
+00:00:00.472515 Firmware type: UEFI
+00:00:00.472762 Secure Boot: Disabled
+00:00:00.472838 Host RAM: 13836MB (13.5GB) total, 8928MB (8.7GB) available
+00:00:00.472853 Executable: /usr/lib/virtualbox/VirtualBox
+00:00:00.472854 Process ID: 11070
+00:00:00.472855 Package type: LINUX_64BITS_GENERIC (OSE)
+00:00:00.472940 Qt version: 5.12.8
+00:00:00.492018 GUI: UIMediumEnumerator: Medium-enumeration started...
+00:00:00.899692 GUI: UIDesktopWidgetWatchdog::sltHandleHostScreenAvailableGeometryCalculated: Screen 0 work area is actually resized to: 8x35 x 2032x1237
+00:00:00.936751 GUI: UIMediumEnumerator: Medium-enumeration finished!

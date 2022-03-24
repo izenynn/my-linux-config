@@ -1,0 +1,35 @@
+2022-03-10 13:43:55,096 DEBUG    root            Loaded Command Group: ['gcloud', 'init']
+2022-03-10 13:43:55,099 DEBUG    root            Running [gcloud.init] with arguments: []
+2022-03-10 13:43:55,099 INFO     ___FILE_ONLY___ Welcome! This command will take you through the configuration of gcloud.
+
+
+2022-03-10 13:43:55,103 INFO     ___FILE_ONLY___ Your current configuration has been set to: [default]
+
+
+2022-03-10 13:43:55,103 INFO     ___FILE_ONLY___ You can skip diagnostics next time by using the following flag:
+
+2022-03-10 13:43:55,103 INFO     ___FILE_ONLY___   gcloud init --skip-diagnostics
+
+
+2022-03-10 13:43:55,103 INFO     ___FILE_ONLY___ Network diagnostic detects and fixes local network connection issues.
+
+2022-03-10 13:43:55,105 INFO     ___FILE_ONLY___ Checking network connection...
+2022-03-10 13:43:55,731 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): accounts.google.com:443
+2022-03-10 13:43:55,815 DEBUG    urllib3.connectionpool https://accounts.google.com:443 "GET / HTTP/1.1" 302 338
+2022-03-10 13:43:55,922 DEBUG    urllib3.connectionpool https://accounts.google.com:443 "GET /ServiceLogin?passive=1209600&continue=https%3A%2F%2Faccounts.google.com%2F&followup=https%3A%2F%2Faccounts.google.com%2F HTTP/1.1" 200 None
+2022-03-10 13:43:55,959 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2022-03-10 13:43:56,695 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "GET /v1beta1/projects HTTP/1.1" 401 None
+2022-03-10 13:43:56,699 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): www.googleapis.com:443
+2022-03-10 13:43:56,778 DEBUG    urllib3.connectionpool https://www.googleapis.com:443 "GET /auth/cloud-platform HTTP/1.1" 200 14
+2022-03-10 13:43:56,783 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): dl.google.com:443
+2022-03-10 13:43:56,860 DEBUG    urllib3.connectionpool https://dl.google.com:443 "GET /dl/cloudsdk/channels/rapid/components-2.json HTTP/1.1" 200 180433
+2022-03-10 13:43:56,911 INFO     ___FILE_ONLY___ Reachability Check passed.
+
+2022-03-10 13:43:56,911 INFO     ___FILE_ONLY___ Network diagnostic passed (1/1 checks passed).
+
+
+2022-03-10 13:44:15,249 INFO     root            Display format: "default"
+2022-03-10 13:44:15,250 DEBUG    root            Checking for updates...
+2022-03-10 13:44:15,257 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): dl.google.com:443
+2022-03-10 13:44:15,335 DEBUG    urllib3.connectionpool https://dl.google.com:443 "GET /dl/cloudsdk/channels/rapid/components-2.json HTTP/1.1" 200 180433
+2022-03-10 13:44:15,376 DEBUG    root            Updating notification cache...
