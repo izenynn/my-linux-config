@@ -26,9 +26,9 @@ augroup END
 set list
 
 " NVIM PLUGINS
-so ~/config/.vim/plugins.vim
-so ~/config/.vim/plugin-config.vim
-so ~/config/.vim/maps.vim
+so ~/.config/.vim/plugins.vim
+so ~/.config/.vim/plugin-config.vim
+so ~/.config/.vim/maps.vim
 
 " COLOR SCHEME
 colorscheme gruvbox
