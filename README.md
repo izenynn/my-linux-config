@@ -8,12 +8,14 @@ The purpouse of this repo is to quickly config `zsh` and `neovim` in new machine
 
 ## How to install
 
-Clone the repo (with submodules):
+1. Clone the repo (with submodules):
 ```sh
 git clone --recurse-submodules https://github.com/izenynn/linux-config.git
 ```
 
-To install just run the script `setup.sh` with sudo (for installations) and follow the instructions (some parts must be done manually):
+2. Change line 5 of `conf/.zshrc` to match your user home, and line 3 in `setup.sh`.
+
+3. To install just run the script `setup.sh` with sudo (for installations) and follow the instructions (some parts must be done manually):
 ```sh
 chmod +x ./setup.sh
 sudo ./setup
