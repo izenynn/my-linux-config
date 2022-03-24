@@ -1,3 +1,6 @@
 [submodule "conf/figlet-fonts"]
 	path = conf/figlet-fonts
 	url = https://github.com/xero/figlet-fonts.git
+[submodule "conf/.vim/plugged/42header"]
+	path = conf/.vim/plugged/42header
+	url = https://github.com/42Paris/42header.git
