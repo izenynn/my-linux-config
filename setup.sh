@@ -6,7 +6,6 @@ export "HOME=/home/rabi"
 apt update && apt upgrade -y
 
 ########## ZSH ##########
-
 apt install zsh -y
 chsh -s $(which zsh)
 
@@ -26,7 +25,7 @@ echo; echo
 ########## ZSH CONF ##########
 
 # copy conf files
-cp ./.zshrc "$HOME"/
+cp ./conf/.zshrc "$HOME"/
 
 # welcome message!
 apt install lolcat figlet -y
@@ -45,9 +44,9 @@ apt install "./exa_0.9.0-4_amd64.deb" -y
 rm "./exa_0.9.0-4_amd64.deb"
 
 # move config files
-cp ./.vimrc "$HOME"/
-cp -r ./.vim "$HOME"/
-cp -r ./.config "$HOME"/
+cp ./conf/.vimrc "$HOME"/
+cp -r ./conf/.vim "$HOME"/
+cp -r ./conf/.config "$HOME"/
 
 # install vim-plug
 curl -fLo "$HOME"/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
