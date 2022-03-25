@@ -8,6 +8,8 @@ The purpouse of this repo is to quickly config `alacritty`, `zsh`, `neovim` with
 
 There are some steps that must be done manually, the script will pop up a message and wait for you to do the steps, please read the message carefully.
 
+*Based on [ander-lab configb](https://github.com/ander-lab/config)*
+
 ## How to install
 
 0. Install git
