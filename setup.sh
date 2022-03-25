@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export "HOME=/home/osboxes"
+export "HOME=/home/[YOUR_USER_HERE]"
 
 ########## GLOBAL ##########
 apt update && apt upgrade -y
@@ -68,24 +68,63 @@ echo
 read -n 1 -p "Press any key to continue..." tmp
 echo; echo
 
-# install coc.vim
-apt install nodejs npm -y
+#========= METHOD 1 OF INSTALLING NODE ========#
 
-########## MANUAL STEPS ##########
+prev=$(pwd)
+cd ~
+#curl -sL https://deb.nodesource.com/setup_16.x | sudo bash -
+curl -sL https://deb.nodesource.com/setup_16.x | bash -
+sudo apt install nodejs npm -y
+cd $prev
+
+npm install --global yarn
 
 echo
 echo "########## MANUAL STEPS ##########"
-echo "# 1. Run "zsh"
-# 2. Run "exec zsh"
-# 3. Run "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash""
+echo "# 1. Go to \"~/.vim/plugged/coc.nvim\"
+# 4. Run \"yarn install\"
+# 5. Run \"yarn build\"
+# 6. Run \"exit\" and return to zsh"
 
 echo
 read -n 1 -p "Press any key to continue..." tmp
 echo; echo
 
-npm install --global yarn
+#==============================================#
+#========= METHOD 2 OF INSTALLING NODE ========#
 
-echo "# 1. Run \"nvm install v16\"
-# 2. Go to \"~/.vim/plugged/coc.nvim\"
-# 3. Run \"yarn install\"
-# 4. Run \"yarn build\""
+## install coc.vim
+#apt install nodejs npm -y
+#
+########### MANUAL STEPS ##########
+#
+#echo
+#echo "########## MANUAL STEPS ##########"
+#echo "# 1. Run \"zsh\"
+## 2. Run \"exec zsh\"
+## 3. Run \"curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash\""
+#
+#echo
+#read -n 1 -p "Press any key to continue..." tmp
+#echo; echo
+#
+#npm install --global yarn
+#
+#echo
+#echo "########## MANUAL STEPS ##########"
+#echo "# 1. Run \"bash\"
+## 2. Run \"nvm install v16\"
+## 3. Go to \"~/.vim/plugged/coc.nvim\"
+## 4. Run \"yarn install\"
+## 5. Run \"yarn build\"
+## 6. Run \"exit\" and return to zsh"
+#
+#echo
+#read -n 1 -p "Press any key to continue..." tmp
+#echo; echo
+
+#==============================================#
+
+########## FINISH! ##########
+echo
+echo "########## FINISH! ##########"
