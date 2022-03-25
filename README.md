@@ -1,4 +1,4 @@
-# linux-config
+# my-linux-config
 
 ## Info
 
@@ -19,7 +19,7 @@ sudo apt install git
 
 1. Clone the repo (with submodules):
 ```sh
-git clone --recurse-submodules https://github.com/izenynn/linux-config.git
+git clone --recurse-submodules https://github.com/izenynn/my-linux-config.git
 ```
 
 2. Configure date and time:
