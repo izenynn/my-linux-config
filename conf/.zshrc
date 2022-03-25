@@ -143,6 +143,12 @@ alias 'v=xclip -o'
 
 # dev
 alias 'gccw=gcc -Wall -Werror -Wextra'
+alias 'gccs=gcc -Wall -Werror -Wextra -pedantic -g3 -fsanitize=address -fsanitize=leak -fsanitize=undefined -fsanitize=bounds -fsanitize=null'
+
+alias 'gpp=g++'
+alias 'gppw=g++ -Wshadow -Wall -Werror -Wextra'
+alias 'gpps=g++ -Wshadow -Wall -Werror -Wextra -pedantic -g3 -fsanitize=address -fsanitize=leak -fsanitize=undefined -fsanitize=bounds -fsanitize=null'
+
 alias 'valgrind-full=valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt'
 
 # utils
@@ -152,9 +158,9 @@ function mkcd() {
 }
 
 # norminette
-function norm-venv() {
-	source "/home/rabi/Documents/42/norm-venv/bin/activate"
-}
+#function norm-venv() {
+#	source "$HOME/Documents/42/norm-venv/bin/activate"
+#}
 
 # todo and fixme
 function td() {
@@ -252,7 +258,7 @@ function k() {
 }
 
 # docker remove all
-alias 'dockerrmall=docker rm $(docker ps -a -q -f status=exited)'
+alias 'docker-rm-all=docker rm $(docker ps -a -q -f status=exited)'
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/rabi/google-cloud-sdk/path.zsh.inc' ]; then . '/home/rabi/google-cloud-sdk/path.zsh.inc'; fi

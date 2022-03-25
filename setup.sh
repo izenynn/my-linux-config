@@ -168,8 +168,8 @@ echo; echo
 
 #==============================================#
 
-########## DEV ##########
-apt install gcc g++ make -y
+########## OTHER ##########
+apt install gcc g++ makea xclip -y
 
 ########## FINISH! ##########
 echo
