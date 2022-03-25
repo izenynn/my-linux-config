@@ -22,7 +22,6 @@ echo
 echo "########## MANUAL STEPS ##########"
 echo "# 1. Run \"chsh -s \$(which zsh)\"
 # 2. Run \"zsh\"
-# 3. Configure oh-my-zsh
 # NOTE: You will have to logout later to apply the shell change"
 
 echo
@@ -37,6 +36,16 @@ cp ./conf/.zshrc "$HOME"/
 # welcome message!
 apt install lolcat figlet -y
 cp -r ./conf/figlet-fonts "$HOME"/git/
+
+########## MANUAL STEPS ##########
+
+echo "########## MANUAL STEPS ##########"
+echo "# 1. Run \"zsh\"
+# 2. Configure oh-my-zsh"
+
+echo
+read -n 1 -p "Press any key to continue..." tmp
+echo; echo
 
 ########## VIM ##########
 
