@@ -20,6 +20,11 @@ git clone --recurse-submodules git@github.com:izenynn/linux-config.git
 
 2. Change line 3 in `setup.sh` to match your home directory.
 
+3. Configure date and time:
+```sh
+sudo dpkg-reconfigure tzdata
+```
+
 3. To install just run the script `setup.sh` with sudo (for installations) and follow the instructions (some parts must be done manually):
 ```sh
 chmod +x ./setup.sh

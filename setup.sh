@@ -14,12 +14,6 @@ snap install alacritty --classic
 apt install zsh -y
 #chsh -s $(which zsh)
 
-######### OH MY ZSH ##########
-apt install curl
-sh -c "$(curl -k -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-mkdir "$HOME"/.oh-my-zsh
-cp ./conf/oh-my-zsh.sh "$HOME"/.oh-my-zsh/
-
 ########## MANUAL STEPS ##########
 echo
 echo "########## MANUAL STEPS ##########"
@@ -32,6 +26,12 @@ echo
 read -n 1 -p "Press any key to continue..." tmp
 echo; echo
 
+######### OH MY ZSH ##########
+apt install curl
+sh -c "$(curl -k -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+mkdir "$HOME"/.oh-my-zsh
+cp ./conf/oh-my-zsh.sh "$HOME"/.oh-my-zsh/
+
 ########## ZSH CONF ##########
 
 # copy conf files
@@ -43,10 +43,11 @@ cp -r ./conf/figlet-fonts "$HOME"/git/
 
 ########## MANUAL STEPS ##########
 
+echo
 echo "########## MANUAL STEPS ##########"
 echo "# 1. Run: zsh
-# 3. Run: sh -c \"\$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\"
 # 2. Configure oh-my-zsh"
+# 3. Run: sh -c \"\$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\"
 
 echo
 read -n 1 -p "Press any key to continue..." tmp
@@ -73,7 +74,7 @@ cp -r ./conf/.vim "$HOME"/
 cp -r ./conf/.config "$HOME"/
 
 # install vim-plug
-curl -fLo "$HOME"/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl -k -fLo "$HOME"/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 ########## MANUAL STEPS ##########
 echo
@@ -92,7 +93,7 @@ prev=$(pwd)
 cd ~
 #curl -k -sL https://deb.nodesource.com/setup_16.x | sudo bash -
 curl -k -sL https://deb.nodesource.com/setup_16.x | bash -
-sudo apt install nodejs npm -y
+apt install nodejs npm -y
 cd $prev
 
 npm install --global yarn
