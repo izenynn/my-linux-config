@@ -156,6 +156,9 @@ alias 'ez=exec zsh'
 function mkcd() {
 	mkdir -p -- "$1" && cd -P -- "$1"
 }
+function cl() {
+	cd -P -- "$1" && ls -alF
+}
 
 # norminette
 #function norm-venv() {
