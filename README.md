@@ -2,7 +2,7 @@
 
 ## Info
 
-My config for my linux Debian based machines.
+My config for Debian based machines.
 
 The purpouse of this repo is to quickly config `alacritty`, `zsh`, `neovim` with plugins, for my new machines, beacuse of this I of course made a bash script to automate the process.
 
