@@ -1,18 +1,38 @@
 #!/bin/bash
 
-export "HOME=/home/[YOUR_USER_HERE]"
+while true; do
+    read -p "Enter your username: " user_tmp
+	read -p "Enter your home absolute path: " home_tmp
+
+	echo
+	echo "USER=\"$user_tmp\""
+	echo "HOME=\"$home_tmp\""
+    read -n 1 -p "Do you want to proceed with the current USER and HOME? [y/n/R] " yn
+    case $yn in
+        [Yy]* ) echo; break;;
+        [Rr]* ) echo; echo; echo "########## Retry ##########"; echo;;
+        [Nn]* ) echo; exit;;
+        * ) echo; echo; echo "########## Retry ##########"; echo;;
+    esac
+done
+
+export "USER=$user_tmp"
+export "HOME=$home_tmp"
+
+# CONFIGURE USER AND HOME MANUALLY
+#export "USER=[YOUR_USER_HERE]"
+#export "HOME=/home/[YOUR_USER_HERE]"
 
 ########## GLOBAL ##########
 apt update && apt upgrade -y
 apt update
 
 ########## ALACRITTY ##########
-apt install snapd
+apt install snapd -y
 snap install alacritty --classic
 
 ########## ZSH ##########
 apt install zsh -y
-#chsh -s $(which zsh)
 
 ########## MANUAL STEPS ##########
 echo
@@ -20,21 +40,23 @@ echo "########## MANUAL STEPS ##########"
 echo "# 1. Run: chsh -s \$(which zsh)
 # 2. Run: zsh
 # 3. Configure zsh
-# NOTE: You will have to logout later to apply the shell change"
+# 4. Run: \"exit\" to return to bash
+# NOTE: You will have to logout later to apply the shell change.
+# IMPORTANT: The next step will open zsh, just type "exit" to return to bash and see the script next step."
 
 echo
 read -n 1 -p "Press any key to continue..." tmp
 echo; echo
 
 ######### OH MY ZSH ##########
-apt install curl
+apt install curl -y
 sh -c "$(curl -k -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 mkdir "$HOME"/.oh-my-zsh
 cp ./conf/oh-my-zsh.sh "$HOME"/.oh-my-zsh/
 
 ########## ZSH CONF ##########
 
-# copy conf files
+# copy conf files of alacritty, nvim and coc (nvim plugin)
 cp ./conf/.zshrc "$HOME"/
 
 # welcome message!
@@ -46,8 +68,8 @@ cp -r ./conf/figlet-fonts "$HOME"/git/
 echo
 echo "########## MANUAL STEPS ##########"
 echo "# 1. Run: zsh
-# 2. Configure oh-my-zsh"
-# 3. Run: sh -c \"\$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\"
+# 2. Configure oh-my-zsh (only if configure menu pop up)
+# 3. Run: \"exit\" to return to bash"
 
 echo
 read -n 1 -p "Press any key to continue..." tmp
@@ -70,18 +92,20 @@ rm "./exa_0.9.0-4_amd64.deb"
 
 # move config files
 cp ./conf/.vimrc "$HOME"/
-#cp -r ./conf/.vim "$HOME"/
+#cp -r ./conf/.vim "$HOME"/ # NO NEED TO DO THIS, LEAVE IT COMMENTED
 cp -r ./conf/.config "$HOME"/
 
 # install vim-plug
 curl -k -fLo "$HOME"/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+chown -R "$USER":"$USER" "$HOME"/.vim
 
 ########## MANUAL STEPS ##########
 echo
 echo "########## MANUAL STEPS ##########"
 echo "# 1. Go to: ~/.config/.vim
 # 2. Open with nvim the file: plugins.vim
-# 3. Type: \":PlugInstall\" in the nvim console"
+# 3. Type: \":PlugInstall\" in the nvim console
+# 4. Type: \":q\" in the nvim console multiple times to exit"
 
 echo
 read -n 1 -p "Press any key to continue..." tmp
@@ -94,7 +118,7 @@ cd ~
 curl -k -sL https://deb.nodesource.com/setup_16.x | bash -
 apt update
 apt install nodejs -y
-apt install npm -y
+#apt install npm -y
 cd $prev
 
 npm install --global yarn
@@ -136,7 +160,7 @@ echo; echo
 ## 3. Go to \"~/.vim/plugged/coc.nvim\"
 ## 4. Run \"yarn install\"
 ## 5. Run \"yarn build\"
-## 6. Run \"exit\" and return to zsh"
+## 6. Run \"exit\" to return to zsh"
 #
 #echo
 #read -n 1 -p "Press any key to continue..." tmp

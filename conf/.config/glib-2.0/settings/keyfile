@@ -1,8 +1,0 @@
-[org/gnome/shell]
-enabled-extensions=['pop-shell@system76.com']
-
-[org/gnome/gedit/plugins]
-active-plugins=['time', 'docinfo', 'modelines', 'spell', 'filebrowser']
-
-[org/gnome/gedit/preferences/ui]
-show-tabs-mode='auto'
