@@ -18,7 +18,7 @@ sudo apt install git
 git clone --recurse-submodules git@github.com:izenynn/linux-config.git
 ```
 
-2. Change line 5 of `conf/.zshrc` to match your user home, and line 3 in `setup.sh`.
+2. Change line 3 in `setup.sh` to match your home directory.
 
 3. To install just run the script `setup.sh` with sudo (for installations) and follow the instructions (some parts must be done manually):
 ```sh
