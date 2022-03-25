@@ -2,9 +2,11 @@
 
 ## Info
 
-My config for my linux machines.
+My config for my linux Debian based machines.
 
-The purpouse of this repo is to quickly config `zsh` and `neovim` in new machines, beacuse of this I of course made a bash script to automate this process.
+The purpouse of this repo is to quickly config `alacritty`, `zsh`, `neovim` with plugins, for my new machines, beacuse of this I of course made a bash script to automate the process.
+
+There are some steps that must be done manually, the script will pop up a message and wait for you to do the steps, please read the message carefully.
 
 ## How to install
 
@@ -15,12 +17,10 @@ sudo apt install git
 
 1. Clone the repo (with submodules):
 ```sh
-git clone --recurse-submodules git@github.com:izenynn/linux-config.git
+git clone --recurse-submodules https://github.com/izenynn/linux-config.git
 ```
 
-2. Change line 3 in `setup.sh` to match your home directory.
-
-3. Configure date and time:
+2. Configure date and time:
 ```sh
 sudo dpkg-reconfigure tzdata
 ```
@@ -31,8 +31,10 @@ chmod +x ./setup.sh
 sudo ./setup
 ```
 
-NOTE: If you only want to install `neovim` with the plugins, or only `zsh`, comment the respective part in the `setup.sh` file. Thx u :3
+4. Open another terminal to do the manual steps, and left the script running on the other one.
+
+5. Wait for the script to finish or to pop up some manual steps.
 
 ##
 [![forthebadge](https://forthebadge.com/images/badges/0-percent-optimized.svg)](https://forthebadge.com)
-[![forthebadge](https://forthebadge.com/images/badges/works-on-my-machine.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/made-with-crayons.svg)](https://forthebadge.com)
