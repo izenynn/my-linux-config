@@ -6,6 +6,10 @@ export "HOME=/home/[YOUR_USER_HERE]"
 apt update && apt upgrade -y
 apt update
 
+########## ALACRITTY ##########
+add-apt-repository ppa:mmstick76/alacritty
+apt install alacritty -y
+
 ########## ZSH ##########
 apt install zsh -y
 #chsh -s $(which zsh)
