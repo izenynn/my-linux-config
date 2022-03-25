@@ -70,7 +70,7 @@ rm "./exa_0.9.0-4_amd64.deb"
 
 # move config files
 cp ./conf/.vimrc "$HOME"/
-cp -r ./conf/.vim "$HOME"/
+#cp -r ./conf/.vim "$HOME"/
 cp -r ./conf/.config "$HOME"/
 
 # install vim-plug
@@ -91,9 +91,10 @@ echo; echo
 
 prev=$(pwd)
 cd ~
-#curl -k -sL https://deb.nodesource.com/setup_16.x | sudo bash -
 curl -k -sL https://deb.nodesource.com/setup_16.x | bash -
-apt install nodejs npm -y
+apt update
+apt install nodejs -y
+apt install npm -y
 cd $prev
 
 npm install --global yarn
@@ -101,8 +102,8 @@ npm install --global yarn
 echo
 echo "########## MANUAL STEPS ##########"
 echo "# 1. Go to: ~/.vim/plugged/coc.nvim
-# 2. Run: yarn install
-# 3. Run: yarn build"
+# 2. Run: sudo yarn install
+# 3. Run: sudo yarn build"
 
 echo
 read -n 1 -p "Press any key to continue..." tmp
@@ -142,6 +143,9 @@ echo; echo
 #echo; echo
 
 #==============================================#
+
+########## DEV ##########
+apt install gcc g++ make -y
 
 ########## FINISH! ##########
 echo
