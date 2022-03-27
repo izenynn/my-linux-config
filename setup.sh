@@ -28,8 +28,15 @@ apt update && apt upgrade -y
 apt update
 
 ########## ALACRITTY ##########
-apt install snapd -y
-snap install alacritty --classic
+#apt install snapd -y
+#snap install alacritty --classic
+
+#curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+#rustup override set stable
+#rustup update stable
+#apt -y install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
+#apt -y install cargo
+#cargo install alacritty
 
 ########## ZSH ##########
 apt install zsh -y
