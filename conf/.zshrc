@@ -260,6 +260,21 @@ function k() {
 	return 0
 }
 
+# get .o dump
+function get-dump() {
+	if [[ -z $1 ]] || [[ $2 ]]; then
+		echo "Usage: $0 [OBJECT_FILE]" >&2
+		return 1
+	fi
+	if [[ $1 == "-h" ]] || [[ $1 == "--help" ]]; then
+		echo "Usage: $0 [OBJECT_FILE]"
+		echo "Returns the shell code of a C compiled object file."
+		return 0
+	fi
+	objdump -d $1 | grep -Po '\s\K[a-f0-9]{2}(?=\s)' | sed 's/^/\\x/g' | perl -pe 's/\r?\n//' | sed 's/$/\n/' && return 1
+	return 0
+}
+
 # docker remove all
 alias 'docker-rm-all=docker rm $(docker ps -a -q -f status=exited)'
 
