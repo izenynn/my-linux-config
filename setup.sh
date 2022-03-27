@@ -169,7 +169,7 @@ echo; echo
 #==============================================#
 
 ########## OTHER ##########
-apt install gcc g++ makea xclip bat -y
+apt install gcc g++ make xclip bat -y
 
 ########## FINISH! ##########
 echo
