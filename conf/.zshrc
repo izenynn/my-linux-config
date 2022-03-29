@@ -114,6 +114,21 @@ echo
 figlet -f 3d -d "$HOME/git/figlet-fonts" \\\(^^\)/ | lolcat
 echo
 
+# uwu
+#alias "uwu=figlet -f 3d -d $HOME/git/figlet-fonts uwu | lolcat"
+function uwu() {
+	for i in $HOME/git/figlet-fonts/*; do
+		figlet -f $i uwu > /dev/null 2>&1
+		if [[ $? != 0 ]]; then
+			continue
+		fi
+		figlet -f $i uwu | lolcat
+		#echo ${i%/*} # print path
+		#echo ${i##*/} # print filename
+		#echo "=================================================="
+	done
+}
+
 # utils
 alias 'c=cd'
 alias 'ls=exa'
