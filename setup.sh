@@ -68,6 +68,8 @@ cp ./conf/.zshrc "$HOME"/
 
 # welcome message!
 apt install lolcat figlet -y
+mkdir "$HOME"/git
+chown -R "$USER":"$USER" "$HOME"/git
 cp -r ./conf/figlet-fonts "$HOME"/git/
 
 ########## MANUAL STEPS ##########
