@@ -37,6 +37,8 @@ sudo ./setup
 
 6. Wait for the script to finish or to pop up some manual steps.
 
+*NOTE: The script was developed for and tested on ubuntu, keep in mind it may don't work on other distros (including debian based ones).*
+
 ##
 [![forthebadge](https://forthebadge.com/images/badges/0-percent-optimized.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/made-with-crayons.svg)](https://forthebadge.com)
