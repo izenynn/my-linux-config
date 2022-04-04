@@ -44,7 +44,7 @@ apt install zsh -y
 ########## MANUAL STEPS ##########
 echo
 echo "########## MANUAL STEPS ##########"
-echo "# 1. Run: chsh -s \$(which zsh)
+echo "# 1. Run (if you want zsh as your shell): chsh -s \$(which zsh)
 # 2. Run: zsh
 # 3. Configure zsh
 # 4. Run: \"exit\" to return to bash
@@ -71,6 +71,10 @@ apt install lolcat figlet -y
 mkdir "$HOME"/git
 chown -R "$USER":"$USER" "$HOME"/git
 cp -r ./conf/figlet-fonts "$HOME"/git/
+
+########## BASH CONF ##########
+cp ./conf/.inputrc "$HOME"/
+cat ./conf/.bashrc >> "$HOME"/.bashrc
 
 ########## MANUAL STEPS ##########
 
