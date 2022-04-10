@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [[ -z $1 ]] || [[ $2 ]]; then
+	echo "Usage: $0 [OBJECT_FILE]" >&2
+	exit 1
+fi
+if [[ $1 == "-h" ]] || [[ $1 == "--help" ]]; then
+	echo "Usage: $0 [OBJECT_FILE]"
+	echo "Returns the shell code of a C compiled object file."
+	exit 0
+fi
+
+objdump -d $1 | grep -Po '\s\K[a-f0-9]{2}(?=\s)' | sed 's/^/\\x/g' | perl -pe 's/\r?\n//' | sed 's/$/\n/' && exit 1
+
+exit 0

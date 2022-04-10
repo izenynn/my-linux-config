@@ -1,0 +1,28 @@
+#!/bin/bash
+
+if [[ -z $1 ]]; then
+	echo "Usage: $0 [PROCESSES NAMES...]" >&2
+	exit 1
+fi
+if [[ $1 == "-h" ]] || [[ $1 == "--help" ]]; then
+	echo "Usage: $0 [PROCESSES NAMES...]" >&2
+	echo "Kill all the processes with the specified names."
+	exit 0
+fi
+
+for i int "$@"; do
+	pids=($(pidof "$i"))
+
+	if [ -z "$pids" ]; then
+		echo "Error: process not found"
+		exit 1
+	fi
+
+	arr=($(echo "$pids" | tr " " "\n"))
+	
+	for j in "${arr[@]}"; do
+		kill -s KILL "$j"
+	done
+done
+
+exit 0

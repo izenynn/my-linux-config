@@ -76,6 +76,10 @@ cp -r ./conf/figlet-fonts "$HOME"/git/
 cp ./conf/.inputrc "$HOME"/
 cat ./conf/.bashrc >> "$HOME"/.bashrc
 
+########## MY SCRIPTS CONF ##########
+chmod a+rx ./conf/scripts/*
+cp ./conf/scripts/* /usr/bin/
+
 ########## MANUAL STEPS ##########
 
 echo

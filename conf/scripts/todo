@@ -1,0 +1,58 @@
+#!/bin/bash
+
+# array of words to search
+declare -a arr=("TODO" "FIXME")
+
+# colors
+nocol='\033[0m'
+red='\033[31m'
+yel='\033[33m'
+blu='\033[34m'
+
+# check number of arguments is 0 or 1
+if [[ $# -gt 1 ]]; then
+	echo -ne "${red}Error: too many arguments${nocol}\n"
+	echo -ne "Usage: td [DIRECTORY](default is the actual directory)\n"
+	return 1
+fi
+
+# get which dir to search on
+if [ -z "$1" ]; then
+	dir="./"
+else
+	if [ -d "$1" ]; then
+		dir="$1"
+	else
+		echo -ne "${red}Error: ${1}: No such file or directory${nocol}\n"
+		return 1
+	fi
+fi
+
+# get array first element index, 0 or 1
+x=(1 0)
+start_idx=${x[1]}
+
+# get array len
+arr_len=${#arr[@]}
+if [[ $start_idx -eq 1 ]]; then
+	((arr_len++))
+fi
+
+# iterate all the array elements
+for (( i=start_idx; i<${arr_len}; i++ )); do
+	# print an extra '\n' if it is not the first search
+	if [[ $i -gt $start_idx ]]; then
+		echo -ne "\n"
+	fi
+	# print the word we are goint to search
+	echo -ne "${yel}${arr[$i]}${nocol}\n"
+	# grep the word
+	output=`grep -rn --color=always -- ${arr[$i]} "$dir"`
+	# print output
+	if [ -z "$output" ]; then
+		output="${blu}no matches found.${nocol}"
+	fi
+	echo -ne "${output}\n"
+done
+
+exit 0

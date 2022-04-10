@@ -1,0 +1,12 @@
+#!/bin/bash
+
+for i in $HOME/git/figlet-fonts/*; do
+	figlet -f $i uwu > /dev/null 2>&1
+	if [[ $? != 0 ]]; then
+		continue
+	fi
+	figlet -f $i uwu | lolcat
+	#echo ${i%/*} # print path
+	#echo ${i##*/} # print filename
+	#echo "=================================================="
+done

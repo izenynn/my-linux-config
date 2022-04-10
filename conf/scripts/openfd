@@ -1,0 +1,10 @@
+#!/bin/bash
+
+pid=$(pidof "$1")
+if [ -z "$pid" ]; then
+	echo "Error: process not found"
+	exit 1
+fi
+ls -la /proc/${pid}/fd
+
+exit 0

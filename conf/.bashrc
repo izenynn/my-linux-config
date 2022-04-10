@@ -4,7 +4,7 @@
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-. "$HOME/.cargo/env"
+#. "$HOME/.cargo/env"
 
 # oh-my-zsh alias
 #alias '-=cd -'
@@ -153,11 +153,9 @@ alias 'gupv=git pull --rebase -v'
 alias 'gwch=git whatchanged -p --abbrev-commit --pretty=medium'
 alias 'gwip=git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify -m "--wip-- [skip ci]"'
 alias 'history=fc -l 1'
-alias 'l=ls -alhF'
-alias 'la=ls -lAhF'
-alias 'll=ls -lhF'
-alias 'ls=ls -GF'
-alias 'lsa=ls -lahF'
+alias 'l=lsd -alhF'
+alias 'la=lsd -lAhF'
+alias 'll=lsd -lhF'
 alias 'md=mkdir -p'
 alias 'please=sudo'
 alias 'po=popd'
@@ -170,21 +168,6 @@ alias 'which-command=whence'
 echo
 figlet -f 3d -d "$HOME/git/figlet-fonts" \\\(^^\)/ | lolcat
 echo
-
-# uwu
-#alias "uwu=figlet -f 3d -d $HOME/git/figlet-fonts uwu | lolcat"
-function uwu() {
-	for i in $HOME/git/figlet-fonts/*; do
-		figlet -f $i uwu > /dev/null 2>&1
-		if [[ $? != 0 ]]; then
-			continue
-		fi
-		figlet -f $i uwu | lolcat
-		#echo ${i%/*} # print path
-		#echo ${i##*/} # print filename
-		#echo "=================================================="
-	done
-}
 
 # utils
 alias 'c=cd'
@@ -233,121 +216,28 @@ function mkcd() {
 function cl() {
 	cd -P -- "$1" && ls -alF
 }
+function rmk(){
+	scrub -p dod $1
+	shred -zun 10 -v $1
+}
+
+# Set 'man' colors
+function man() {
+    env \
+    LESS_TERMCAP_mb=$'\e[01;31m' \
+    LESS_TERMCAP_md=$'\e[01;31m' \
+    LESS_TERMCAP_me=$'\e[0m' \
+    LESS_TERMCAP_se=$'\e[0m' \
+    LESS_TERMCAP_so=$'\e[01;44;33m' \
+    LESS_TERMCAP_ue=$'\e[0m' \
+    LESS_TERMCAP_us=$'\e[01;32m' \
+    man "$@"
+}
 
 # norminette
 #function norm-venv() {
 #	source "$HOME/Documents/42/norm-venv/bin/activate"
 #}
-
-# todo and fixme
-function td() {
-	# array of words to search
-	declare -a arr=("TODO" "FIXME")
-
-	# colors
-	local nocol='\033[0m'
-	local red='\033[31m'
-	local yel='\033[33m'
-	local blu='\033[34m'
-
-	# check number of arguments is 0 or 1
-	if [[ $# -gt 1 ]]; then
-		echo -ne "${red}Error: too many arguments${nocol}\n"
-		echo -ne "Usage: td [DIRECTORY](default is the actual directory)\n"
-		return 1
-	fi
-
-	# get which dir to search on
-	if [ -z "$1" ]; then
-		dir="./"
-	else
-		if [ -d "$1" ]; then
-			dir="$1"
-		else
-			echo -ne "${red}Error: ${1}: No such file or directory${nocol}\n"
-			return 1
-		fi
-	fi
-
-	# get array first element index, 0 or 1
-	local x=(1 0)
-	local start_idx=${x[1]}
-
-	# get array len
-	local arr_len=${#arr[@]}
-	if [[ $start_idx -eq 1 ]]; then
-		((arr_len++))
-	fi
-
-	# iterate all the array elements
-	for (( i=start_idx; i<${arr_len}; i++ )); do
-		# print an extra '\n' if it is not the first search
-		if [[ $i -gt $start_idx ]]; then
-			echo -ne "\n"
-		fi
-		# print the word we are goint to search
-		echo -ne "${yel}${arr[$i]}${nocol}\n"
-		# grep the word
-		output=`grep -rn --color=always -- ${arr[$i]} "$dir"`
-		# print output
-		if [ -z "$output" ]; then
-			output="${blu}no matches found.${nocol}"
-		fi
-		echo -ne "${output}\n"
-	done
-
-	# return :D
-	return 0
-}
-
-# get open fd of a process
-function ofd() {
-	local pid=$(pidof "$1")
-	if [ -z "$pid" ]; then
-		echo "Error: process not found"
-		return 1
-	fi
-	ls -la /proc/${pid}/fd
-	return 0
-}
-
-# kill pid
-function kp() {
-	kill -s KILL $1
-}
-
-# kill
-function k() {
-	local pids=($(pidof "$1"))
-
-	if [ -z "$pids" ]; then
-		echo "Error: process not found"
-		return 1
-	fi
-
-	local arr=($(echo "$pids" | tr " " "\n"))
-
-	for i in "${arr[@]}"; do
-		kill -s KILL "$i"
-	done
-
-	return 0
-}
-
-# get .o dump
-function get-dump() {
-	if [[ -z $1 ]] || [[ $2 ]]; then
-		echo "Usage: $0 [OBJECT_FILE]" >&2
-		return 1
-	fi
-	if [[ $1 == "-h" ]] || [[ $1 == "--help" ]]; then
-		echo "Usage: $0 [OBJECT_FILE]"
-		echo "Returns the shell code of a C compiled object file."
-		return 0
-	fi
-	objdump -d $1 | grep -Po '\s\K[a-f0-9]{2}(?=\s)' | sed 's/^/\\x/g' | perl -pe 's/\r?\n//' | sed 's/$/\n/' && return 1
-	return 0
-}
 
 # docker remove all
 alias 'docker-rm-all=docker rm $(docker ps -a -q -f status=exited)'
@@ -357,3 +247,6 @@ if [ -f '/home/rabi/google-cloud-sdk/path.zsh.inc' ]; then . '/home/rabi/google-
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/rabi/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/rabi/google-cloud-sdk/completion.zsh.inc'; fi
+
+# bspwm reload
+alias 'reload-bspwm=xdotool key "Super_L+alt+r"'
