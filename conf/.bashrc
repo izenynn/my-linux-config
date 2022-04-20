@@ -169,6 +169,10 @@ echo
 figlet -f 3d -d "$HOME/git/figlet-fonts" \\\(^^\)/ | lolcat
 echo
 
+# only real hackers/developers settings
+set -o vi
+export 'EDITOR=nvim'
+
 # utils
 alias 'c=cd'
 alias 'ls=exa'
@@ -220,6 +224,9 @@ function rmk(){
 	scrub -p dod $1
 	shred -zun 10 -v $1
 }
+function hg() {
+    history | grep $1;
+}
 
 # Set 'man' colors
 function man() {
@@ -242,11 +249,8 @@ function man() {
 # docker remove all
 alias 'docker-rm-all=docker rm $(docker ps -a -q -f status=exited)'
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/rabi/google-cloud-sdk/path.zsh.inc' ]; then . '/home/rabi/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/rabi/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/rabi/google-cloud-sdk/completion.zsh.inc'; fi
-
 # bspwm reload
 alias 'reload-bspwm=xdotool key "Super_L+alt+r"'
+
+# burpsuite
+#alias 'burpsuite=java --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.desktop/javax.swing=ALL-UNNAMED -jar /usr/bin/burpsuite'
