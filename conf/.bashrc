@@ -225,7 +225,7 @@ function rmk(){
 	shred -zun 10 -v $1
 }
 function hg() {
-    history | grep $1;
+    history | grep "$1" | cut -f2- -d ' ';
 }
 
 # Set 'man' colors
