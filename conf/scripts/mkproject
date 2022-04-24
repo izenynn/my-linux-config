@@ -11,6 +11,6 @@ if [[ $1 == "-h" ]] || [[ $1 == "--help" ]]; then
 	exit 0
 fi
 
-mkdir -p "$1"/{info,nmap,target-files,exploits,scripts}
+mkdir -p "$1"/{info,nmap,files,exploits,scripts}
 
 exit 0
