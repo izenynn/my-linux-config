@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [[ -z $1 ]] || [[ $2 ]]; then
+	echo "Usage: $0 [PROJECT NAME]" >&2
+	exit 1
+fi
+
+if [[ $1 == "-h" ]] || [[ $1 == "--help" ]]; then
+	echo "Usage: $0 [PROJECT NAME]"
+	echo "Creates the basic structure for a project."
+	exit 0
+fi
+
+mkdir -p "$1/{info,nmap,target-files,exploits,scripts}"
+
+exit 0
