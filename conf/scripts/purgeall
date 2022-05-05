@@ -10,7 +10,7 @@ if [[ $1 == "-h" ]] || [[ $1 == "--help" ]]; then
 	exit 0
 fi
 
-for i int "$@"; do
+for i in "$@"; do
 	pids=($(pidof "$i"))
 
 	if [ -z "$pids" ]; then
