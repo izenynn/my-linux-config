@@ -251,6 +251,3 @@ alias 'docker-rm-all=docker rm $(docker ps -a -q -f status=exited)'
 
 # bspwm reload
 alias 'reload-bspwm=xdotool key "Super_L+alt+r"'
-
-# burpsuite
-#alias 'burpsuite=java --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.desktop/javax.swing=ALL-UNNAMED -jar /usr/bin/burpsuite'
