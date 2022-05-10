@@ -104,9 +104,9 @@ source $ZSH/oh-my-zsh.sh
 ########## MY CODE ##########
 
 # pure prompt
-#fpath+=$HOME/.zsh/pure
-#autoload -U promptinit; promptinit
-#prompt pure
+fpath+=$HOME/.zsh/pure
+autoload -U promptinit; promptinit
+prompt pure
 
 # welcome message
 echo

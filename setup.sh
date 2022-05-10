@@ -67,15 +67,18 @@ cp ./conf/oh-my-zsh.sh "$HOME"/.oh-my-zsh/
 cp ./conf/.zshrc "$HOME"/
 
 # welcome message!
-apt install lolcat figlet -y
+apt install lolcat figlet git -y
 mkdir "$HOME"/git
 chown -R "$USER":"$USER" "$HOME"/git
 cp -r ./conf/figlet-fonts "$HOME"/git/
 
+# install pure prompt
+mkdir -p "$HOME/.zsh"
+git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
+
 ########## BASH CONF ##########
 cp ./conf/.inputrc "$HOME"/
-#cp ./conf/.bashrc "$HOME"/
-cat ./conf/.bashrc >> "$HOME"/.bashrc
+cp ./conf/.bashrc "$HOME"/
 
 ########## MY SCRIPTS CONF ##########
 chmod a+rx ./conf/scripts/*
