@@ -110,7 +110,11 @@ prompt pure
 
 # welcome message
 echo
-figlet -f 3d -d "$HOME/git/figlet-fonts" \\\(^^\)/ | lolcat
+#figlet -f 3d -d "$HOME/git/figlet-fonts" \\\(^^\)/ | lolcat
+#figlet -f starwars -d "$HOME/git/figlet-fonts" " 0 1 " | lolcat
+#figlet -f Electronic -d "$HOME/git/figlet-fonts" " 0 1 " | lolcat
+#figlet -f Blocks -d "$HOME/git/figlet-fonts" " 0 1 " | lolcat
+figlet -f Doh -d "$HOME/git/figlet-fonts" " 0 1 " | tail -n 23 | head -n 16 | lolcat
 
 #########
 # vi mode
@@ -232,3 +236,8 @@ alias 'reload-bspwm=xdotool key "Super_L+alt+r"'
 
 # Created by `pipx` on 2022-05-08 22:42:11
 export PATH="$PATH:/home/user/.local/bin"
+
+# go
+export GOPATH="/usr/local/go/bin"
+export GOBINPATH="$HOME/go/bin"
+export PATH="$PATH:$GOPATH:$GOBINPATH"

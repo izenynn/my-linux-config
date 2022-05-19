@@ -1,5 +1,15 @@
 #!/bin/bash
 
+if [[ $1 ]]; then
+	echo "Usage: $0 [PROCESS NAME]" >&2
+	exit 1
+fi
+
+if [[ $1 == "-h" ]] || [[ $1 == "--help" ]]; then
+	echo "Usage: $0 [PROCESS NAME]"
+	echo "Get the open file descriptor of a process."
+fi
+
 pid=$(pidof "$1")
 if [ -z "$pid" ]; then
 	echo "Error: process not found"

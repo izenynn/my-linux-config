@@ -13,3 +13,5 @@ fi
 for i in "$@"; do
 	kill -s KILL "$i"
 done
+
+exit 0
