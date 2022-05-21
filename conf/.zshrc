@@ -170,6 +170,9 @@ alias 'nr=nvim README.md'
 alias 'nb=nvim ~/.bashrc'
 alias 'nz=nvim ~/.zshrc'
 
+alias nt='ntmp=$(mktemp) && nvim "$ntmp"'
+alias nlt='if [ -z "$ntmp" ]; then echo "[ERROR] no tmp file" >&2; return 1; else nvim "$ntmp"; fi'
+
 # make
 alias 'm=make'
 alias 'mr=make re'
