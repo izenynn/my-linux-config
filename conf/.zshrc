@@ -171,7 +171,7 @@ alias 'nb=nvim ~/.bashrc'
 alias 'nz=nvim ~/.zshrc'
 alias 'nbh=nvim ~/.bash_history'
 alias 'nzh=nvim ~/.zsh_history'
-alias 'nt=ntmp=$(mktemp) && nvim "$ntmp"'
+alias 'nt=ntmp=$(mktemp) && echo "tmp file created: $ntmp" && nvim "$ntmp"'
 alias 'nlt=if [ -z "$ntmp" ]; then echo "[ERROR] no tmp file" >&2; return 1; else nvim "$ntmp"; fi'
 
 # make
