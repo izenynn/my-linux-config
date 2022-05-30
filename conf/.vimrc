@@ -17,6 +17,9 @@ set tabstop=4
 " Note: If you do need to type a literal kj (or whatever your mapping is) just type them with 2 seconds in between
 inoremap kj <esc>
 vnoremap kj <esc>
+" REMAP <ESC> in command mode
+" Note: In command mode mappings to esc run the command for some odd historical vi compatibility reason. We use the alternate method of existing which is Ctrl-C (this method also work in insert or visual mode, as well as Ctrl + [, with is literally <ESC>)
+cnoremap kj <C-C>
 
 " LINE NUMBERS
 set number
