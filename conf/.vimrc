@@ -13,6 +13,11 @@ set sw=4
 set noexpandtab
 set tabstop=4
 
+" REMAP <ESC> in insert and visual mode
+" Note: If you do need to type a literal kj (or whatever your mapping is) just type them with 2 seconds in between
+inoremap kj <esc>
+vnoremap kj <esc>
+
 " LINE NUMBERS
 set number
 
