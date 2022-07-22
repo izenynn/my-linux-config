@@ -187,6 +187,12 @@ alias 'mn=make norme'
 alias 'x=xclip'
 alias 'v=xclip -o'
 
+# rustc
+alias 'rc=rustc'
+alias 'cn=cargo new'
+alias 'cb=cargo build'
+alias 'cr=cargo run'
+
 # dev
 alias 'gccw=gcc -Wall -Werror -Wextra'
 alias 'gccs=gcc -Wall -Werror -Wextra -pedantic -g3 -fsanitize=address -fsanitize=leak -fsanitize=undefined -fsanitize=bounds -fsanitize=null'
